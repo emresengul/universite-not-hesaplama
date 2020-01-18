@@ -26,7 +26,10 @@ app.use(errorController.get404Page);
 
 
 
-mongoose.connect(connectionString)
+mongoose.connect(connectionString,{
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+})
     .then(() => {
         console.log("Connected! Mongodb")
         app.listen(PORT);
