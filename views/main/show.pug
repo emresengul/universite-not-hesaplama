@@ -6,7 +6,7 @@ head
   // Bootstrap CSS
   link(rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css' integrity='sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh' crossorigin='anonymous')
   link(rel='stylesheet' href='../css/style.css')
-  title &Uuml;niversite Not Hesaplama Uygulamas&imath;
+  title Üniversite Not Hesaplama Uygulaması
 section#not
   .container
     .row
@@ -47,7 +47,7 @@ section#not
             h5 Ders Kredisi
           .col-md-3.basliklar
             h5 Harf Notu
-
+        hr
         .col-md-12
           form#ders-hesaplama(method='POST' action="../hesapla")
             //- input(type='hidden' value=`${derssayisi}` name='derslerSayisi')
@@ -91,6 +91,7 @@ section#not
                         option(value='1' selected= val.dersharf == 1) DD
                         option(value='0.5' selected= val.dersharf == 0.5) FD
                         option(value='0' selected= val.dersharf == 0) FF
+                hr
 
 
             .col-md-12
