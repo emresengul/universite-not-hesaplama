@@ -1,0 +1,111 @@
+doctype html
+head
+  // Required meta tags
+  meta(charset='utf-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
+  // Bootstrap CSS
+  link(rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css' integrity='sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh' crossorigin='anonymous')
+  link(rel='stylesheet' href='../css/style.css')
+  title &Uuml;niversite Not Hesaplama Uygulamas&imath;
+section#not
+  .container
+    .row
+      .col-md-12.bg-dark.text-light.text-center
+        h5 Ekstra Ders Seçin
+      .col-md-12.bg-dark.text-light
+        
+        .form-group.col-md-12
+          select#ders-sayi.form-control(name='ders-sayi')
+            option(selected disabled hidden) Ekstra Ders Sayısı Seçin
+            option(value='1' ) 1
+            option(value='2' ) 2
+            option(value='3' ) 3
+            option(value='4' ) 4
+            option(value='5') 5
+            option(value='6' ) 6
+            option(value='7' ) 7
+            option(value='8' ) 8
+            option(value='9' ) 9
+            option(value='10' ) 10
+            option(value='11') 11
+            option(value='12' ) 12
+            option(value='13' ) 13
+            option(value='14' ) 14
+            option(value='15') 15
+            option(value='16' ) 16
+            option(value='17' ) 17
+            option(value='18' ) 18
+        .col-md-6.bilgiler
+          h1 Genel Ortalamanız: #{ortalama}
+        .col-md-6.bilgiler
+          h1.text-muted Hesaplayan Kişi: 
+            span.text-primary #{ad}
+        .col-md-12
+          .col-md-4.basliklar
+            h5 Ders Ad&imath;
+          .col-md-4.basliklar
+            h5 Ders Kredisi
+          .col-md-3.basliklar
+            h5 Harf Notu
+
+        .col-md-12
+          form#ders-hesaplama(method='POST' action="../hesapla")
+            //- input(type='hidden' value=`${derssayisi}` name='derslerSayisi')
+            .dersler
+            -var n1 = 1
+            -var n2= 1
+            -var n3= 1
+            each val in dersler
+                //- p=n1
+                .form-group.col-md-4
+                    input.form-control(type='text' name=`ders${n1++}` placeholder='Ders Adı' value=`${val.dersadi}`)
+                .form-group.col-md-4
+                    select.form-control(name=`kredi${n2++}`)
+                        option(value='1'  selected= val.derskredi == 1) 1 Kredi
+                        option(value='1.5' selected= val.derskredi == 1.5) 1.5 Kredi
+                        option(value='2'  selected= val.derskredi == 2) 2 Kredi
+                        option(value='2.5' selected= val.derskredi == 2.5) 2.5 Kredi
+                        option(value='3' selected= val.derskredi == 3) 3 Kredi
+                        option(value='3.5' selected= val.derskredi == 3.5) 3.5 Kredi
+                        option(value='4' selected= val.derskredi == 4) 4 Kredi
+                        option(value='4.5' selected= val.derskredi == 4.5) 4.5 Kredi
+                        option(value='5' selected= val.derskredi == 5) 5 Kredi
+                        option(value='5.5' selected= val.derskredi == 5.5) 5.5 Kredi
+                        option(value='6' selected= val.derskredi == 6) 6 Kredi
+                        option(value='6.5' selected= val.derskredi == 6.5) 6.5 Kredi
+                        option(value='7' selected= val.derskredi == 7) 7 Kredi
+                        option(value='7.5' selected= val.derskredi == 7.5) 7.5 Kredi
+                        option(value='8' selected= val.derskredi == 8) 8 Kredi
+                        option(value='8.5' selected= val.derskredi == 8.5) 8.5 Kredi
+                        option(value='9' selected= val.derskredi == 9) 9 Kredi
+                        option(value='9.5' selected= val.derskredi == 9.5) 9.5 Kredi
+                        option(value='10' selected= val.derskredi == 10) 10
+                .form-group.col-md-3
+                    select.form-control(name=`harf${n3++}`)
+                        option(value='4' selected= val.dersharf == 4) AA
+                        option(value='3.5' selected= val.dersharf == 3.5) BA
+                        option(value='3' selected= val.dersharf == 3) BB
+                        option(value='2.5' selected= val.dersharf == 2.5) CB
+                        option(value='2' selected= val.dersharf == 2) CC
+                        option(value='1.5' selected= val.dersharf == 1.5) DC
+                        option(value='1' selected= val.dersharf == 1) DD
+                        option(value='0.5' selected= val.dersharf == 0.5) FD
+                        option(value='0' selected= val.dersharf == 0) FF
+
+
+            .col-md-12
+              button.btn.btn-success.col-md-12.mt-2.mb-2 Tekrar Hesapla
+  .container
+    .row
+      .col-md-12
+        form(action="/", method="get")
+          button.btn.col-md-12.mt-2.mb-2.text-light Başka Hesaplama Yap
+        h1 #{tarih}
+// Optional JavaScript
+
+
+script(src='../js/ders.js')
+// jQuery first, then Popper.js, then Bootstrap JS
+script(src='https://code.jquery.com/jquery-3.4.1.slim.min.js' integrity='sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n' crossorigin='anonymous')
+script(src='https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js' integrity='sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo' crossorigin='anonymous')
+script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js' integrity='sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6' crossorigin='anonymous')

@@ -1,0 +1,132 @@
+doctype html
+head
+  // Required meta tags
+  meta(charset='utf-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
+  // Bootstrap CSS
+  link(href='https://fonts.googleapis.com/css?family=Roboto|Varela+Round' rel='stylesheet')
+  link(rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons')
+  link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css')
+  script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js')
+  link(rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css' integrity='sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh' crossorigin='anonymous')
+  link(rel='stylesheet' href='css/style.css')
+
+
+  title Üniversite Not Hesaplama Uygulaması
+
+
+section#not
+  .container.ust
+    .row
+      .col-md-12.bg-dark.text-light.text-center
+        h5 Ders Sayısını Seçin
+        if (action !== "undefined"  && action== "fail")
+          div.alert.alert-danger Lütfen en az bir ders seçin ve tekrar hesaplayın
+      .col-md-12.bg-dark.text-light
+        .form-group.col-md-12
+          select#ders-sayi.form-control(name='ders-sayi')
+            option(selected disabled hidden) Ders Sayısı Seçin
+            option(value='1') 1
+            option(value='2') 2
+            option(value='3') 3
+            option(value='4') 4
+            option(value='5') 5
+            option(value='6') 6
+            option(value='7') 7
+            option(value='8') 8
+            option(value='9') 9
+            option(value='10') 10
+            option(value='11') 11
+            option(value='12') 12
+            option(value='13') 13
+            option(value='14') 14
+            option(value='15') 15
+            option(value='16') 16
+            option(value='17') 17
+            option(value='18') 18
+        .col-md-12
+          .col-md-4.basliklar
+            h5 Ders Ad&imath;
+          .col-md-4.basliklar
+            h5 Ders Kredisi
+          .col-md-3.basliklar
+            h5 Harf Notu
+        .col-md-12
+          form#ders-hesaplama(method='POST' action="hesapla")
+            //- input(type='hidden' value='1' name='derslerSayisi')
+            .dersler
+
+            .col-md-6.bg-dark.text-light.text-center.ad
+
+
+              
+            .col-md-12
+              button.btn.btn-success.col-md-12.mt-2.mb-2 Hesapla
+section#loglar
+
+  .container
+    .row
+      if kullanici != undefined
+        .col-md-12.kullanici
+          table.table.table-striped.table-dark
+            thead
+              tr
+                th(colspan="3").text-center Senin Hesapladığın Notlar 
+                  small (Maksimum 5 Tane Gözükür) 
+                    a(href="#myModal" data-toggle="modal").text-warning.ml-3 Sıfırla
+                    
+
+              tr
+                th(scope='col') Oluşturulma Tarihi
+                th(scope='col') Hesaplayan Kişi
+                th(scope='col') #
+              each zm in kullanici
+                tbody
+                  tr
+                    td(scope='row') #{zm.date.zaman+ " "}
+                      small (#{zm.date.tarih})
+                    td #{zm.ad} 
+                      span.text-danger (Sen)
+                    td 
+                      a(href=`${url+zm.url}`, target="_blank", rel="noopener noreferrer") Göster 
+
+      .col-md-12
+        table.table.table-striped.table-dark
+          thead
+            tr
+              th(colspan="3").text-center Son Hesaplanan Ortalamalar 
+                small  (Maksimum 10 Tane Gözükür)
+            tr
+              th(scope='col') Oluşturulma Tarihi
+              th(scope='col') Hesaplayan Kişi
+              th(scope='col') #
+            each bi in bilgi
+              tbody
+                tr
+                  td(scope='row') #{bi.date.zaman+ " "}
+                    small (#{bi.date.tarih})
+                  td #{bi.ad}
+                  td 
+                    a(href=`${url+bi.url}`, target="_blank", rel="noopener noreferrer") Göster
+#myModal.modal.fade
+  .modal-dialog.modal-confirm
+    .modal-content
+      .modal-header
+        .icon-box
+          i.material-icons &#xE5CD;
+        
+        button.close(type='button' data-dismiss='modal' aria-hidden='true') &times;
+      .modal-body
+        p Sıfırladığın notlara tekrar erişebilirsin fakat anasayfada gözükmez. Sıfırlamak istiyor musunuz?
+      .modal-footer
+        button.btn.btn-info.text-centered.mr-5(type='button' data-dismiss='modal') İptal
+        form(action="/sifirla", method="post")
+          button.btn.btn-danger Sıfırla
+
+
+// Optional JavaScript
+script(src='js/ders.js')
+// jQuery first, then Popper.js, then Bootstrap JS
+script(src='https://code.jquery.com/jquery-3.4.1.slim.min.js' integrity='sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n' crossorigin='anonymous')
+script(src='https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js' integrity='sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo' crossorigin='anonymous')
+script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js' integrity='sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6' crossorigin='anonymous')
