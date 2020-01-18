@@ -1,5 +1,7 @@
 # Üniversite Not Hesaplama
 
+## Demo: http://universite.emresengul.com/
+
 Klasik olarak Üniversite Not Hesaplama algoritmasını kullanan bu uygulama, algoritmanın yanında değişik özellikler sunuyor. Hesapladığınız notun linkini kaydederek daha sonra aynı dersleri tekrar yazmadan hesaplayabilirsiniz. Aynı zamanda size özel oluşturulan notlarınızın linkini arkadaşlarınızla paylaşabilirsiniz.
 
 # Kurulumu
