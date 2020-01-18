@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 8080;
 
 
 
-const connectionString = process.env.LOGIN_URL
+const connectionString = process.env.MONGODB_URI
 
 
 app.use(cookieParser())
