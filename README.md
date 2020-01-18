@@ -26,7 +26,6 @@ Sunucuya kurulum işlemlerini heroku üzerinden yapabilirsiniz.
  - Moment ( Tarih Hesaplamalarını Yapma )
  - Cookie-Parser ( Kullanıcının Son İşlemlerini Cookie Yerine Kaydetme )
  - Body-Parser ( Dosyaların Yolu ve Sunucu İşlemleri )
- - 
  # Yapım Aşaması
  **Proje 2 günde yapılmıştır. 2  günde ortalama 16 saat üzerinde çalışılmıştır. Bu proje sayesinde birçok yeni bilgi edindim.**
  
