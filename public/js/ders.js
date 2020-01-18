@@ -14,7 +14,7 @@ function hesapla() {
     else{
         adAlan.innerHTML = `
         <div class="form-group col-md-12">   
-        <input type="text" name="ad" class="form-control bg-primary text-light" id="ad" placeholder="Adınız (İsteğe Bağlı) | Notunuzda İsminizi Görmek İçin Yazın">
+        <input type="text" name="ad" class="form-control bg-primary mb-3 mt-3 text-light" id="ad" placeholder="Adınız (İsteğe Bağlı) | Notunuzda İsminizi Görmek İçin Yazın">
     </div>
         `
     }
@@ -64,7 +64,8 @@ function hesapla() {
             <option value="0.5">FD</option>
             <option value="0">FF</option>
         </select>
-    </div>        
+    </div>
+    <hr>
             `
     }
 }
