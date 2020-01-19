@@ -33,4 +33,5 @@ Sunucuya kurulum işlemlerini heroku üzerinden yapabilirsiniz.
  
 # Gelecek Özellikler
  - Özelleştirilmiş 404 ve 500 sayaları
+ - Tek tuşla notların ekran görüntüsünü alma 
  
