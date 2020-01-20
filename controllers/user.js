@@ -2,7 +2,6 @@ const Not = require("../models/not");
 const moment = require("moment")
 
 exports.getIndex = (req, res, next) => {
-    // console.log("Hesap= ", req.cookies.hesap)
     Not.find().sort({ _id: -1 }).limit(10)
         .then(result => {
             var zamanlar = [];
@@ -24,15 +23,15 @@ exports.getIndex = (req, res, next) => {
                 }).sort({_id:-1}).limit(5)
                     .then(kullanici => {
                         var zamanlar2 = [];
-                        result.forEach(element => {
-                            let deger = moment([element.date.yil, element.date.ay - 1, element.date.gun, element.date.saat, element.date.dakika, element.date.saniye]).locale("tr").fromNow()
+                        kullanici.forEach(el => {
+                            let degerci = moment([el.date.yil, el.date.ay - 1, el.date.gun, el.date.saat, el.date.dakika, el.date.saniye]).locale("tr").fromNow()
                             zamanlar2.push({
-                                zaman: deger
+                                zaman: degerci
                             })
                         });
-                        let olusturucu = Object.assign({}, zamanlar2);
+                        let olusturucum = Object.assign({}, zamanlar2);
                         for (let index = 0; index < kullanici.length; index++) {
-                            kullanici[index].date.zaman = olusturucu[index].zaman
+                            kullanici[index].date.zaman = olusturucum[index].zaman
                         }
                         res.render("main/index", {
                             dersler: 0,
