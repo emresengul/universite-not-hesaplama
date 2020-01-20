@@ -22,25 +22,38 @@ exports.getIndex = (req, res, next) => {
                     url: { $in: gelenCookies }
                 }).sort({_id:-1}).limit(5)
                     .then(kullanici => {
-                        var zamanlar2 = [];
-                        kullanici.forEach(el => {
-                            let degerci = moment([el.date.yil, el.date.ay - 1, el.date.gun, el.date.saat, el.date.dakika, el.date.saniye]).locale("tr").fromNow()
-                            zamanlar2.push({
-                                zaman: degerci
-                            })
-                        });
-                        let olusturucum = Object.assign({}, zamanlar2);
-                        for (let index = 0; index < kullanici.length; index++) {
-                            kullanici[index].date.zaman = olusturucum[index].zaman
+                        if(kullanici.length > 0){
+                            var zamanlar2 = [];
+                            kullanici.forEach(el => {
+                                let degerci = moment([el.date.yil, el.date.ay - 1, el.date.gun, el.date.saat, el.date.dakika, el.date.saniye]).locale("tr").fromNow()
+                                zamanlar2.push({
+                                    zaman: degerci
+                                })
+                            });
+                            let olusturucum = Object.assign({}, zamanlar2);
+                            for (let index = 0; index < kullanici.length; index++) {
+                                kullanici[index].date.zaman = olusturucum[index].zaman
+                            }
+                            res.render("main/index", {
+                                dersler: 0,
+                                ortalama: 0,
+                                bilgi: result,
+                                url: req.protocol + "://" + req.get('host') + "/" + "hesapla/",
+                                action: req.query.action,
+                                kullanici: kullanici
+                            });
                         }
-                        res.render("main/index", {
-                            dersler: 0,
-                            ortalama: 0,
-                            bilgi: result,
-                            url: req.protocol + "://" + req.get('host') + "/" + "hesapla/",
-                            action: req.query.action,
-                            kullanici: kullanici
-                        });
+                        else{
+                            res.render("main/index", {
+                                dersler: 0,
+                                ortalama: 0,
+                                bilgi: result,
+                                url: req.protocol + "://" + req.get('host') + "/" + "hesapla/",
+                                action: req.query.action,
+                                kullanici: undefined
+                            });
+                        }
+
                     })
                     .catch(err=>{
                         next(err);
