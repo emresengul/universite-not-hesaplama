@@ -45,7 +45,10 @@ a:hover{
 .kullanici form{
     display: inline-block;
 }
-
+#myCanvas{
+    margin: 0 auto;
+    width: 40% !important;
+}
 
 .modal-confirm {		
     color: #636363;
