@@ -12,13 +12,16 @@ section#not
     .row
     
       .col-md-12
+
         a.btn.btn-light.mb-2.col-md-12(data-toggle='collapse' href='#ekran' role='button' aria-expanded='false' aria-controls='collapseExample' id="ekran-goruntusu")
           h4 Ekran Görüntüsü Al
 
       #ekran.collapse.mb-2.col-md-12
         
         .card.card-body
-          button.btn.btn-warning.mb-2(onclick='DownloadCanvasAsImage()' style="height:3rem;") Görüntüyü Kaydet
+          h6.text-info Uyarı: 
+            span  Fotoğraf kalitesiz gözükebilir, indir butonuna tıkladığınızda düzelecektir.
+          button.btn.btn-primary.mb-2(onclick='DownloadCanvasAsImage()' style="height:3rem;") Görüntüyü Kaydet (İndir)
           canvas#myCanvas(width='1080' height='1920' style='border:1px solid #d3d3d3; background-color:#143F46;')
             | Tarayıcınız bu özelliği desteklemiyor.
 
