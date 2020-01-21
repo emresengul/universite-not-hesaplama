@@ -18,6 +18,15 @@ Sizde kendi sitenize bu scripti dahil etmek istiyorsanız node.js destekli sunuc
 
 Sunucuya kurulum işlemlerini heroku üzerinden yapabilirsiniz.
 
+## Script Özellikleri ( Üniversite Not Hesaplama )
+- Üniversite Not Hesaplama Algoritması
+- Hesaplanan notları saklayabilme
+- Notlarının linkini arkadaşlarınla paylaşabilme
+- Tüm notların ekran görüntüsünü tek tuşla alabilme
+- Hesaplanan ortalamaya isim ekleyebilme
+
+
+
 ## Kullanılan Teknolojiler( Paketler )
 
  - Pug ( Template Engine )
