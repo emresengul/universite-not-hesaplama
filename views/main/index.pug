@@ -59,7 +59,6 @@ section#not
         hr
         .col-md-12
           form#ders-hesaplama(method='POST' action="hesapla")
-            //- input(type='hidden' value='1' name='derslerSayisi')
             .dersler
 
             .col-md-6.bg-dark.text-light.text-center.ad
@@ -94,7 +93,7 @@ section#loglar
                     td #{zm.ad} 
                       span.text-danger (Sen)
                     td 
-                      a(href=`${url+zm.url}`, target="_blank", rel="noopener noreferrer") Göster 
+                      a(href=`${url+zm.url}`,  rel="noopener noreferrer") Göster 
 
       .col-md-12
         table.table.table-striped.table-dark
@@ -113,7 +112,7 @@ section#loglar
                     small (#{bi.date.tarih})
                   td #{bi.ad}
                   td 
-                    a(href=`${url+bi.url}`, target="_blank", rel="noopener noreferrer") Göster
+                    a(href=`${url+bi.url}`, rel="noopener noreferrer") Göster
 #myModal.modal.fade
   .modal-dialog.modal-confirm
     .modal-content
