@@ -10,6 +10,23 @@ head
 section#not
   .container
     .row
+    
+      .col-md-12
+        a.btn.btn-light.mb-2.col-md-12(data-toggle='collapse' href='#ekran' role='button' aria-expanded='false' aria-controls='collapseExample' id="ekran-goruntusu")
+          h4 Ekran Görüntüsü Al
+
+      #ekran.collapse.mb-2.col-md-12
+        
+        .card.card-body
+          button.btn.btn-warning.mb-2(onclick='DownloadCanvasAsImage()' style="height:3rem;") Görüntüyü Kaydet
+          canvas#myCanvas(width='1080' height='1920' style='border:1px solid #d3d3d3; background-color:#143F46;')
+            | Tarayıcınız bu özelliği desteklemiyor.
+
+
+
+
+
+
       .col-md-12.bg-dark.text-light.text-center
         h5 Ekstra Ders Seçin
       .col-md-12.bg-dark.text-light
@@ -51,7 +68,7 @@ section#not
         .col-md-12
           form#ders-hesaplama(method='POST' action="../hesapla")
             //- input(type='hidden' value=`${derssayisi}` name='derslerSayisi')
-            .dersler
+            //- .dersler
             -var n1 = 1
             -var n2= 1
             -var n3= 1
@@ -102,10 +119,15 @@ section#not
         form(action="/", method="get")
           button.btn.col-md-12.mt-2.mb-2.text-light Başka Hesaplama Yap
         h1 #{tarih}
+
+
+
 // Optional JavaScript
 
 
 script(src='../js/ders.js')
+script(src='../js/screenshot.js')
+
 // jQuery first, then Popper.js, then Bootstrap JS
 script(src='https://code.jquery.com/jquery-3.4.1.slim.min.js' integrity='sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n' crossorigin='anonymous')
 script(src='https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js' integrity='sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo' crossorigin='anonymous')
